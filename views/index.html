@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Nairobi TeleHealth Village</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* Add custom styling for centering the table */
+        .search-results {
+            width: 80%; 
+            margin: 20px auto;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>N.T.H.V</h1>
+                <img src="https://via.placeholder.com/100x50" alt="Nairobi TeleHealth Services Logo">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/register" class="signup-btn">Sign Up</a></li>
+                    <li><a href="/login" class="login-btn">Login</a></li>                    
+                    <li><a href="#">Nairobi TeleHealth Doctors</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">&#9776;</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h2>We Are Always Ready to Help You & Your Family</h2>
+            <p>We perform to the best of our ability to achieve the highest attainable standard</p>
+        </div>
+
+        <div class="booking-box">
+            <div class="booking-header">
+                <div class="booking-option">
+                    <div class="icon">
+                        <img src="/icons/calendar_icon.png" alt="Book a doctor" />
+                    </div>
+                    <div class="text">
+                        <h3>Book a doctor</h3>
+                        <p>Examination or procedure</p>
+                    </div>
+                </div>
+                <div class="telehealth-option">
+                    <div class="icon">
+                        <img src="/icons/headset_icon.png" alt="TeleHealth" />
+                    </div>
+                    <div class="text">
+                        <h3>TeleHealth</h3>
+                        <p>Call consultation with doctor</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-body">
+                <div class="field">
+                    <label for="specializationDropdown">Select a specialty</label>
+                    <select id="specializationDropdown">
+                        <option>Choose specialty</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="cityDropdown">In this city</label>
+                    <select id="cityDropdown">
+                        <option>Choose city</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="municipalityDropdown">In this area</label>
+                    <select id="municipalityDropdown">
+                        <option>Choose area</option>
+                    </select>
+                </div>
+                <div class="field search">
+                    <label for="doctor">Or search by name</label>
+                    <input type="text" id="doctor" placeholder="Doctor name or hospital" />
+                    <div class="search-btn-container">
+                        <button type="button" class="search-btn">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+
+<!-- Doctor Search Results Section -->
+<section class="search-results">
+    <h3>Doctor Search Results</h3>
+    <div class="doctor-search">
+        <div class="doctor-item">
+            <div class="doctor-details">
+                <div class="doctor-card">
+                    <img src="doctor1.jpg" alt="Doctor Image">
+                <h4>[Doctor's Name]</h4>
+                <p><strong>Specialization:</strong> [Specialization]</p>
+                <p><strong>City:</strong> [City]</p>
+                <p><strong>Municipality:</strong> [Municipality]</p>
+            </div>
+            <div class="button-container">
+                <div class="doctor-availability">
+                    <button>Book</button>
+                </div>
+                <button class="view-details">View Details</button>
+            </div>
+        </div>
+    </div>
+        <!-- More Doctor Items will be dynamically added here -->
+    </div>
+</section>
+
+
+        <aside class="sidebar">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#consult">Book a Consultation</a></li>
+                <li><a href="#specialists">Our Specialists</a></li>
+            </ul>
+            <input type="text" placeholder="Search...">
+        </aside>
+    </main>
+    <script src="/js/scripts.js"></script>
+</body>
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Nairobi Telehealth Hospital</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Our Team</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Search By</h3>
+            <ul>
+                <li><a href="#">Specialty</a></li>
+                <li><a href="#">City</a></li>
+                <li><a href="#">Insurance</a></li>
+                <li><a href="#">Hospital</a></li>
+                <li><a href="#">Center</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Are You A Doctor?</h3>
+            <ul>
+                <li><a href="#">Join Nairobi Telehealth Doctors</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Need Help?</h3>
+            <ul>
+                <li><a href="#">Medical Library</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Terms Of Use</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Doctors Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Download the App</h3>
+            <div class="app-buttons">
+                <a href="#"> <img src="google-play.png" alt="Google Play"> </a>
+                <a href="#"> <img src="app-store.png" alt="App Store"> </a>
+            </div>
+            <div class="social-icons">
+                <a href="#"> <img src="facebook-icon.png" alt="Facebook"> </a>
+                <a href="#"> <img src="instagram-icon.png" alt="Instagram"> </a>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>

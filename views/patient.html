@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome, <!-- Patient's First Name Here -->!</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>N.T.H.V</h1>
+                <img src="https://via.placeholder.com/100x50" alt="Nairobi TeleHealth Services Logo">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/api/auth/logout" class="logout-btn">Logout</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">&#9776;</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Welcome, <!-- Patient's First Name Here -->!</h2>
+            <p>Manage your appointments and book new consultations here</p>
+        </div>
+
+        <div class="booking-box">
+            <div class="booking-header">
+                <div class="booking-option">
+                    <div class="icon">
+                        <img src="/icons/calendar_icon.png" alt="Book a doctor" />
+                    </div>
+                    <div class="text">
+                        <h3>Book a doctor</h3>
+                        <p>Examination or procedure</p>
+                    </div>
+                </div>
+                <div class="telehealth-option">
+                    <div class="icon">
+                        <img src="/icons/headset_icon.png" alt="TeleHealth" />
+                    </div>
+                    <div class="text">
+                        <h3>TeleHealth</h3>
+                        <p>Call consultation with doctor</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-body">
+                <div class="field">
+                    <label for="specialty">Select a specialty</label>
+                    <select id="specialty">
+                        <option>Choose specialty</option>
+                        <!-- Add specialties dynamically -->
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="city">In this city</label>
+                    <select id="city">
+                        <option>Choose city</option>
+                        <!-- Add cities dynamically -->
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="area">In this area</label>
+                    <select id="area">
+                        <option>Choose area</option>
+                        <!-- Add areas dynamically -->
+                    </select>
+                </div>
+                <div class="field search">
+                    <label for="doctor">Or search by name</label>
+                    <input type="text" id="doctor" placeholder="Doctor name or hospital" />
+                    <div class="search-btn-container">
+                        <button type="button" class="search-btn" onclick="searchDoctor()">Search</button>
+                    </div>
+                </div>
+                <button type="button" onclick="bookAppointment()">Book Appointment</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <h2>Your Profile</h2>
+            <div class="profile-info">
+                <h3>Appointments Booked</h3>
+                <ul id="appointments-list">
+                    <!-- List of booked appointments will be dynamically loaded here -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/scripts.js"></script>
+    <script>
+        // Display patient's welcome message and load appointments
+        async function displayPatientInfo() {
+            const patientName = 'John Doe';
+            document.title = `Welcome, ${patientName}!`;
+            document.querySelector('.hero-text h2').textContent = `Welcome, ${patientName}!`;
+
+            try {
+                const response = await fetch('/api/patients/appointments');
+                const appointments = await response.json();
+                const appointmentsList = document.getElementById('appointments-list');
+                appointmentsList.innerHTML = '';
+                appointments.forEach(appointment => {
+                    const li = document.createElement('li');
+                    li.textContent = `Doctor: ${appointment.doctor}, Date: ${appointment.date}, Time: ${appointment.time}`;
+                    appointmentsList.appendChild(li);
+                });
+            } catch (error) {
+                console.error('Error loading appointments:', error);
+            }
+        }
+
+        // Search and Book Appointment
+        async function bookAppointment() {
+            const specialty = document.getElementById('specialty').value;
+            const city = document.getElementById('city').value;
+            const area = document.getElementById('area').value;
+            const doctorName = document.getElementById('doctor').value;
+
+            const response = await fetch('/api/patients/book-appointment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ specialty, city, area, doctorName })
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                alert('Appointment booked successfully!');
+                displayPatientInfo(); // Refresh appointments
+            } else {
+                alert('Failed to book appointment.');
+            }
+        }
+
+        displayPatientInfo();
+    </script>
+</body>
+</html>

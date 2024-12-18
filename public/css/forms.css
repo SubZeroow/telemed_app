@@ -1,0 +1,141 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', sans-serif; 
+    background: #f2f2f2;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh; 
+}
+
+/* Form Wrapper */
+.form_wrapper {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Title Styling */
+.title_container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Flexbox for Form Fields */
+form {
+    display: flex;
+    flex-direction: column; 
+    gap: 2px;
+}
+
+/* Input Fields */
+.input_field {
+    position: relative;
+    margin-bottom: 20px; 
+}
+
+.input_field input, 
+.input_field select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+    background: #f9f9f9;
+}
+
+.input_field span {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #333;
+}
+
+.input_field i {
+    font-size: 18px;
+}
+
+/* Radio Options */
+.input_field.radio_option input {
+    width: auto;
+}
+
+.radio_option label {
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+/* Select Option */
+.select_option {
+    position: relative;
+}
+
+.select_option select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.select_arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+}
+
+/* Checkbox Options */
+.checkbox_option input {
+    width: auto;
+}
+
+.checkbox_option label {
+    font-size: 14px;
+}
+
+/* Aligning Remember Me and Forgot Password in one line */
+.d-flex {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* Submit Button */
+.button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background: #0056b3;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 575px) {
+    .form_wrapper {
+        margin: 10px;
+    }
+}
